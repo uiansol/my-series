@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import Genres from './Genres'
+import NewGenre from './NewGenre'
+import EditGenre from './EditGenre'
+
 import axios from 'axios'
 import {
   BrowserRouter as Router,
@@ -24,7 +27,9 @@ function App () {
       <div>
         <Header />
         <Route path='/' exact component={Home} />
-        <Route path='/genres' component={Genres} />
+        <Route path='/genres' exact component={Genres} />
+        <Route path='/genres/:id' exact component={EditGenre} />
+        <Route path='/genres/new' exact component={NewGenre} />
       </div>
     </Router>
   )
