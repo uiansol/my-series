@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import './app.css'
 
 const Genres = () => {
   const [data, setData] = useState([])
@@ -27,7 +28,7 @@ const Genres = () => {
         <th scope='row'>{record.id}</th>
         <td>{record.name}</td>
         <td>
-          <button className='btn btn-danger' onClick={() => deleteGenre(record.id)}>Remove</button>
+          <button className='btn btn-danger btn-action' onClick={() => deleteGenre(record.id)}>Remove</button>
           <Link className='btn btn-warning' to={'/genres/' + record.id}>Edit</Link>
         </td>
       </tr>
@@ -49,7 +50,7 @@ const Genres = () => {
   return (
     <div className='container'>
       <h1>Genres</h1>
-      <div><Link className='btn btn-primary' to='/genres/new'>New genre</Link></div>
+      <div><Link className='btn btn-primary btn-new' to='/genres/new'>New genre</Link></div>
       <table className='table table-dark'>
         <thead>
           <tr>

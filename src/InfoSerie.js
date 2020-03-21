@@ -90,8 +90,8 @@ const InfoSerie = ({ match }) => {
               <div className='col-8'>
                 <h1 className='font-weight-light text-white'>{data.name}</h1>
                 <div className='lead text-white'>
-                  {data.status === 'WATCHED' && <Badge color='success'>Watched</Badge>}
-                  {data.status === 'TO_WATCH' && <Badge color='warning'>To Watch</Badge>}
+                  {data.status === 'WATCHED' && <Badge color='success' className='btn-action'>Watched</Badge>}
+                  {data.status === 'TO_WATCH' && <Badge color='warning' className='btn-action'>To Watch</Badge>}
                   Genre: {data.genre}
                 </div>
               </div>
@@ -101,14 +101,14 @@ const InfoSerie = ({ match }) => {
       </header>
 
       <div className='container'>
-        <button className='btn btn-primary' onClick={() => setMode('EDIT')}>Editar</button>
+        {mode === 'INFO' && <button className='btn btn-primary btn-edit' onClick={() => setMode('EDIT')}>Editar</button>}
       </div>
 
       {
         mode === 'EDIT' &&
           <div className='container'>
-            <h1>New Serie</h1>
-            <button className='btn btn-primary' onClick={() => setMode('INFO')}>Cancel edit</button>
+            <h1>Edit serie</h1>
+            <button className='btn btn-primary btn-new' onClick={() => setMode('INFO')}>Cancel edit</button>
             <form>
               <div className='form-group'>
                 <label htmlFor='name'>Name</label>
@@ -138,7 +138,7 @@ const InfoSerie = ({ match }) => {
                   To Watch
                 </label>
               </div>
-              <button type='button' onClick={save} className='btn btn-primary'>Save</button>
+              <button type='button' onClick={save} className='btn btn-primary btn-edit'>Save</button>
             </form>
           </div>
       }

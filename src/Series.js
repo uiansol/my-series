@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import './app.css'
 
 const Series = () => {
   const [data, setData] = useState([])
@@ -27,8 +28,8 @@ const Series = () => {
         <th scope='row'>{record.id}</th>
         <td>{record.name}</td>
         <td>
-          <button className='btn btn-danger' onClick={() => deleteSerie(record.id)}>Remove</button>
-          <Link className='btn btn-warning' to={'/series/' + record.id}>Info</Link>
+          <button className='btn btn-danger btn-action' onClick={() => deleteSerie(record.id)}>Remove</button>
+          <Link className='btn btn-warning btn-action' to={'/series/' + record.id}>Info</Link>
         </td>
       </tr>
     )
@@ -49,7 +50,7 @@ const Series = () => {
   return (
     <div className='container'>
       <h1>Series</h1>
-      <div><Link className='btn btn-primary' to='/series/new'>New serie</Link></div>
+      <div><Link className='btn btn-primary btn-new' to='/series/new'>New serie</Link></div>
       <table className='table table-dark'>
         <thead>
           <tr>
