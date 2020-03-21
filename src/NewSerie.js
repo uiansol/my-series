@@ -28,7 +28,7 @@ const NewSerie = () => {
       <form>
         <div className='form-group'>
           <label htmlFor='name'>Name</label>
-          <input type='text' value={name} onChange={onChange} className='form-control' id='name ' placeholder='Genre name' />
+          <input type='text' value={name} onChange={onChange} className='form-control' id='name ' placeholder='Serie name' />
         </div>
         <button type='button' onClick={save} className='btn btn-primary'>Save serie</button>
       </form>
